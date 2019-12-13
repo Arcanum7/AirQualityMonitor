@@ -1,0 +1,8 @@
+#ignore rules
+*.o
+*.lst
+*.d
+*.elf
+*.bin
+*.map
+*.hex

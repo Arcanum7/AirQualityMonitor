@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "build/AirQualityMonitor.elf",
+            "svdFile": ".vscode/f103.svd",
+            "configFiles": [
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                ".vscode/stm32f1x.cfg"
+            ],
+            "preLaunchTask": "Build project"
+        },
+        {
+            "name": "Debug current Python file",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+}

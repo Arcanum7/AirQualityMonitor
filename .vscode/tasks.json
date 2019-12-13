@@ -1,0 +1,287 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build project",
+            "group": {
+                "kind": "build"
+            },
+            "type": "shell",
+            "command": "C:\\MinGW\\bin\\make.EXE",
+            "args": [
+                "-j9"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "presentation": {
+                "focus": true
+            }
+        },
+        {
+            "label": "Compile current file",
+            "type": "shell",
+            "command": "C:/Program Files (x86)/GNU Tools ARM Embedded/8 2019-q3-update/bin/arm-none-eabi-gcc.exe",
+            "args": [
+                "-c",
+                "-DInc/CCS811_defs.h",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-IInc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+                "-IDrivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "-IDrivers/CMSIS/Include",
+                "-IDrivers/CMSIS/Include",
+                "-mcpu=cortex-m3",
+                "-mthumb",
+                "-DInc/CCS811_defs.h",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-IInc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+                "-IDrivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "-IDrivers/CMSIS/Include",
+                "-IDrivers/CMSIS/Include",
+                "-Og",
+                "-Wall",
+                "-fdata-sections",
+                "-ffunction-sections",
+                "-g",
+                "-gdwarf-2",
+                "-MMD",
+                "-MP",
+                "-MF'build/${fileBasenameNoExtension}.d'",
+                "'${relativeFile}'",
+                "-o",
+                "'build/${fileBasenameNoExtension}.o'"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "presentation": {
+                "focus": true
+            }
+        },
+        {
+            "label": "Delete build folder",
+            "type": "shell",
+            "command": "C:\\MinGW\\bin\\make.EXE",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "focus": false
+            }
+        },
+        {
+            "label": "CPU: Build, Download and run",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c",
+                "program build/AirQualityMonitor.elf verify reset exit"
+            ],
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": "Build project"
+        },
+        {
+            "label": "CPU: Download and run",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c",
+                "program build/AirQualityMonitor.elf verify reset exit"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "CPU: Reset and run",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c init",
+                "-c reset",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Halt",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c init",
+                "-c halt",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Run",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c init",
+                "-c resume",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Python file",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${file}"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Open CubeMX project",
+            "type": "shell",
+            "command": "start",
+            "args": [
+                "AirQualityMonitor.ioc"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Update workspace",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/ideScripts/update.py"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Serial Monitor",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/ideScripts/SerialMonitor.py"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "\ud83d\udcc8Run Serial Monitor",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/ideScripts/SerialMonitor.py"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "\ud83d\udd28Build project",
+            "group": {
+                "kind": "build",
+                "isDefault": "True"
+            },
+            "type": "shell",
+            "command": "C:\\MinGW\\bin\\make.EXE",
+            "args": [
+                "-j9"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "presentation": {
+                "focus": true
+            }
+        },
+        {
+            "label": "\ud83d\udd25Delete build folder",
+            "type": "shell",
+            "command": "C:\\MinGW\\bin\\make.EXE",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "focus": false
+            }
+        },
+        {
+            "label": "\ud83d\ude80CPU: Build, Download and run",
+            "type": "shell",
+            "command": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+            "args": [
+                "-f",
+                "C:/openOCD/OpenOCD-20190828-0.10.0/share/openocd/scripts/interface/stlink.cfg",
+                "-f",
+                ".vscode/stm32f1x.cfg",
+                "-c",
+                "program build/AirQualityMonitor.elf verify reset exit"
+            ],
+            "problemMatcher": [],
+            "group": "build",
+            "dependsOn": "Build project"
+        }
+    ]
+}

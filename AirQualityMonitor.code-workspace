@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "cortex-debug.armToolchainPath": "C:/Program Files (x86)/GNU Tools ARM Embedded/8 2019-q3-update/bin",
+        "cortex-debug.openocdPath": "C:/openOCD/OpenOCD-20190828-0.10.0/bin/openocd.exe",
+        "editor.formatOnSave": true,
+        "workbench.editor.enablePreview": false,
+        "files.associations": {
+            "bme280_defs.h": "c",
+            "bme280.h": "c",
+            "main.h": "c",
+            "stm32f1xx_hal.h": "c",
+            "ccs881.h": "c",
+            "ccs811.h": "c",
+            "ccs811_defs.h": "c"
+        }
+    }
+}
